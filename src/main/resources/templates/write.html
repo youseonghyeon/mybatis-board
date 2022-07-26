@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
+<head th:replace="/fragment/header.html :: header">
 </head>
 <body>
 <div>
-  <div>제목</div>
-  <input type="text">
+    <form th:action="@{/save}" method="post">
 
-  <div>비밀번호</div>
-  <input type="text">
+        <div>제목</div>
+        <input name="title" id="title" type="text">
 
-  <div>내용</div>
-  <textarea id="content" cols="30" rows="10" style="resize: none;"></textarea>
+        <div>비밀번호</div>
+        <input name="password" id="password" type="text">
 
+        <div>내용</div>
+        <textarea name="content" id="content" cols="30" rows="10" style="resize: none;"></textarea>
 
+        <button class="custom_button" type="submit">저장</button>
+
+    </form>
 </div>
 </body>
 </html>

@@ -1,0 +1,14 @@
+.custom_button {
+  padding: 20px;
+  border: 1px solid cornflowerblue;
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.aic {
+  align-items: center;
+}

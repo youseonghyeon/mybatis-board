@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="/fragment/header.html :: header">
 </head>
 <body>
-<a th:href="@{/write}">글 작성</a>
-<h1 th:text="${content}">text</h1>
+<div>
+    <h2>게시판</h2>
+    <a th:href="@{/write}">글 작성</a>
+    <form th:action="@{/post}" method="get">
+        <input name="title" type="text">
+        <input type="submit" value="검색">
+    </form>
+    <div>
+        <div th:each="post : ${postList}">
+            <div style="border: 1px solid #5285e3">
+                <a th:href="@{/post/{id}(id=${post.getId()})}">
+                    <div th:text="${post.getId()}">id</div>
+                    <div th:text="${post.getTitle()}">title</div>
+                    <div th:text="${post.getContent()}">content</div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
